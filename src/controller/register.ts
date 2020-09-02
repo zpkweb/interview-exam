@@ -1,5 +1,5 @@
 import { provide, controller, inject, Context, get, post, plugin } from 'midway';
-import { registerResult, registerOptions } from '../../interface/register';
+import { registerResult, registerOptions } from '../interface/register';
 
 @provide()
 @controller('/register')
@@ -10,7 +10,7 @@ export class Register {
 
   @plugin()
   mysql;
-  
+
   @inject('registerService')
   register: {
     getRegister: () => Promise<registerResult>;

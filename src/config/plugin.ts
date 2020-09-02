@@ -4,7 +4,7 @@
 // } as EggPlugin;
 
 
-exports.mysql = {
-  enable: true,
-  package: 'egg-mysql',
-};
+// exports.mysql = {
+//   enable: true,
+//   package: 'egg-mysql',
+// };

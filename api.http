@@ -8,6 +8,7 @@ GET {{baseUrl}}/register
 ###
 
 
+
 # register
 
 POST {{baseUrl}}/register
@@ -17,6 +18,7 @@ content-Type: application/json
   "name": "zpk",
   "phone": 18612875765
 }
+
 ###
 
 

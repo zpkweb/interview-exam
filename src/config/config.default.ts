@@ -12,32 +12,32 @@ export default (appInfo: EggAppInfo) => {
   config.middleware = [
   ];
 
-  // config.sequelize = {
-  //   host: 'localhost',
-  //   port: '3306',
-  //   user: 'root',
-  //   password: 'root1234',
-  //   database: 'test',
-  //   dialect: 'mysql',
-  // };
-
-  config.mysql = {
-    // database configuration
-    client: {
-      // host
-      host: 'localhost',
-      // port
-      port: '3306',
-      // username
-      user: 'root',
-      // password
-      password: 'root1234',
-      // database
-      database: 'mysql',
-    },
-    // load into app, default is open
-    app: true,
+  config.sequelize = {
+    host: 'localhost',
+    port: '3306',
+    username: 'root',
+    password: 'root1234',
+    database: 'test',
+    dialect: 'mysql',
+    storage: ':memory:',
   };
+  // config.mysql = {
+  //   // database configuration
+  //   client: {
+  //     // host
+  //     host: 'localhost',
+  //     // port
+  //     port: '3306',
+  //     // username
+  //     user: 'root',
+  //     // password
+  //     password: 'root1234',
+  //     // database
+  //     database: 'mysql',
+  //   },
+  //   // load into app, default is open
+  //   app: true,
+  // };
 
   config.security = {
     // 关闭 csrf
