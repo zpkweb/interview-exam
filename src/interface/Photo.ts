@@ -13,3 +13,10 @@ export interface PhotoResult {
   createdTime: Date;
   modifiedTime: Date;
 }
+
+export interface PhotoService {
+  getPhoto(id: number): Promise<PhotoResult>;
+  getPhotoAll(): Promise<PhotoResult>;
+  setPhoto(options: Photo): Promise<PhotoResult>;
+  delPhoto(id: number): Promise<PhotoResult>;
+}

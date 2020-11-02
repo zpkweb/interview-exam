@@ -3,40 +3,46 @@ import { Application } from 'midway';
 
 import 'reflect-metadata';
 import { createConnection, getConnectionOptions } from 'typeorm';
-import { Photo } from './model/Photo';
-import { PhotoMetadata } from './model/PhotoMetadata';
+// import { Photo } from './model/Photo';
+// import { PhotoMetadata } from './model/PhotoMetadata';
+
+import { UserEntity } from './app/modules/people/user/user.entity';
+import { UserInfoEntity } from './app/modules/people/user/user-info.entity';
+
+import { ExamEntity } from './app/modules/exam/exam.entity';
+
+import { QuestionEntity } from './app/modules/question/question.entity';
+
+import { SuperAdminEntity } from './app/modules/people/superadmin/superadmin.entity';
+
+import { AdminEntity } from './app/modules/people/admin/admin.entity';
+
+import { TagEntity } from './app/modules/tag/tag.entity';
 
 export = (app: Application) => {
 
   app.beforeStart(async () => {
     console.log('🚀 Your awesome APP is launching...');
     const connectionOptions = await getConnectionOptions();
-    Object.assign(connectionOptions, { entities: [Photo] });
+    // Object.assign(connectionOptions, { entities: [Photo, PhotoMetadata] });
+    Object.assign(connectionOptions, { entities: [
+      UserEntity, 
+      UserInfoEntity, 
+      ExamEntity, 
+      QuestionEntity,
+      SuperAdminEntity,
+      AdminEntity,
+      TagEntity
+    ] });
+    // Object.assign(connectionOptions, { entities: [__dirname + 'modules/**/**/**.entity.ts'] });
 
-    createConnection(connectionOptions)
-    .then(async connection => {
-      const photo = new Photo();
-      photo.name = 'Me and Bears';
-      photo.description = 'I am near polar bears';
-      photo.filename = 'photo-with-bears.jpg';
-      photo.views = 1;
-      photo.isPublished = true;
+    // const connection: Connection = await createConnection(connectionOptions);
+    createConnection(connectionOptions);
 
-      // 创建 photo metadata 对象
-      const metadata = new PhotoMetadata();
-      metadata.height = 640;
-      metadata.width = 480;
-      metadata.compressed = true;
-      metadata.comment = 'cybershoot';
-      metadata.orientation = 'portait';
+    console.log('Photo is saved, photo metadata is saved too.');
+    // .then(async connection => {
 
-      // 获取 repository
-      const photoRepository = connection.getRepository(Photo);
-      // 保存photo的同时保存metadata
-      await photoRepository.save(photo);
-      console.log('Photo is saved, photo metadata is saved too.');
-
-    }).catch(error => console.log(error));
+    // }).catch(error => console.log(error));
 
     console.log('✅  Your awesome APP launched');
   });

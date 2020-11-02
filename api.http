@@ -1,27 +1,252 @@
 @baseUrl = http://127.0.0.1:7001
 
 
-# register
+# create admin
+POST  {{baseUrl}}/superAdmin/createAdmin
+Content-Type: application/json
 
-GET {{baseUrl}}/register
+{
+  "username": "test",
+  "phone": "18612875765",
+  "password": "123456",
+  "type": "web"
+}
+###
 
+#get adminall
+GET {{baseUrl}}/superAdmin/admin
+###
+
+#get admin
+GET {{baseUrl}}/admin/2
+###
+
+#get admin
+GET {{baseUrl}}/admin/type/web
 ###
 
 
+#create tag
 
-# register
-
-POST {{baseUrl}}/register
-content-Type: application/json
+POST {{baseUrl}}/admin/createTag
+Content-Type: application/json
 
 {
-  "name": "zpk",
-  "phone": 18612875765
+  "adminId": 1,
+  "title": "CSS"
 }
 
 ###
 
 
+#get tag all
+GET {{baseUrl}}/tag/all
+###
+
+#get tag all
+GET {{baseUrl}}/tag/2
+###
+
+#
+
+GET {{baseUrl}}/tag/remove/1
+
+###
+
+
+
+#question all
+GET {{baseUrl}}/question
+###
+
+#question all
+GET {{baseUrl}}/question/1
+###
+
+#question create
+
+POST {{baseUrl}}/question
+Content-Type: application/json
+
+{
+  "title": "第三题"
+}
+
+###
+
+
+
+
+
+
+
+
+
+
+#exam all
+
+GET {{baseUrl}}/exam
+###
+
+#exam 
+
+GET {{baseUrl}}/exam/11
+###
+
+#exam user
+
+GET {{baseUrl}}/user/exam/5
+###
+
+#exam create
+
+POST {{baseUrl}}/exam
+Content-Type: application/json
+
+{
+  "id": 5,
+  "title": "第一个试卷"
+}
+
+###
+
+
+#exam find user
+
+GET {{baseUrl}}/exam/user/3
+
+
+###
+ 
+#exam update
+
+POST {{baseUrl}}/exam/update
+Content-Type: application/json
+
+{
+  "id": 1,
+  "title": "第1个试卷"
+}
+
+
+###
+
+
+
+
+
+
+
+
+
+
+#user all
+
+GET {{baseUrl}}/user
+
+###
+
+#user create
+
+POST {{baseUrl}}/user
+Content-Type: application/json
+
+{
+  "username": "zpk5",
+  "phone": "18612875765",
+  "age": 5,
+  "sex": 1
+}
+
+###
+
+#user update
+
+POST {{baseUrl}}/user/update
+Content-Type: application/json
+
+{
+  "id": 3,
+  "username": "zpk333",
+  "age": 33
+}
+
+###
+
+#user update
+
+PUT  {{baseUrl}}/user
+Content-Type: application/json
+
+{
+  "id": 3,
+  "username": "zpk3",
+  "phone": "18612875765",
+  "age": 3
+}
+
+###
+
+
+#user del
+
+DELETE  {{baseUrl}}/user/1
+
+
+###
+
+
+#user del
+
+GET  {{baseUrl}}/user/del/2
+
+
+###
+
+
+
+
+
+
+
+
+
+
+# photo
+
+GET {{baseUrl}}/photo
+
+###
+
+
+
+# photo
+
+GET {{baseUrl}}/photo/36
+
+###
+
+
+
+# photo
+
+POST {{baseUrl}}/photo
+content-Type: application/json
+
+{
+  "name": "test3",
+  "height": 111
+}
+
+###
+
+
+
+# photo
+
+DELETE  {{baseUrl}}/photo/32
+
+###
 
 
 

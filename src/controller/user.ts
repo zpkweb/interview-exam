@@ -2,13 +2,13 @@ import { Context, controller, get, inject, provide } from 'midway';
 import { IUserService, IUserResult } from '../interface/user';
 
 @provide()
-@controller('/user')
-export class UserController {
+@controller('/users')
+export class UserControllers {
 
   @inject()
   ctx: Context;
 
-  @inject('userService')
+  @inject('userServices')
   service: IUserService;
 
   @get('/:id')

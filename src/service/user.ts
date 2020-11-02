@@ -1,8 +1,8 @@
 import { provide } from 'midway';
 import { IUserService, IUserOptions, IUserResult } from '../interface/user';
 
-@provide('userService')
-export class UserService implements IUserService {
+@provide('userServices')
+export class UserServices implements IUserService {
 
   async getUser(options: IUserOptions): Promise<IUserResult> {
     return {
